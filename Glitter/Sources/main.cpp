@@ -25,11 +25,12 @@ int main(int argc, char * argv[]) {
         fprintf(stderr, "Failed to Create OpenGL Context");
         return EXIT_FAILURE;
     }
+    const unsigned char* version = glGetString(GL_VERSION);
 
     // Create Context and Load OpenGL Functions
     glfwMakeContextCurrent(mWindow);
     gladLoadGL();
-    fprintf(stderr, "OpenGL %s\n", glGetString(GL_VERSION));
+    fprintf(stderr, "OpenGL %s\n", version);
 
     // Rendering Loop
     while (glfwWindowShouldClose(mWindow) == false) {
